@@ -1,3 +1,39 @@
-# VBA-Excel
-Macros
-Formatowanie krawędzi tabeli 
+Sub formatuj_tabele()
+
+last_cell = ActiveWorkbook.ActiveSheet.UsedRange.Rows.Count
+last_column = ActiveWorkbook.ActiveSheet.UsedRange.Columns.Count
+ActiveWorkbook.ActiveSheet.Range(Cells(1, 1), Cells(last_cell, last_column)).Select
+
+    With Selection.Borders(xlEdgeLeft)             'lewa krawedz tabeli
+        .LineStyle = xlContinuous
+        .Weight = xlThin
+    End With
+
+    With Selection.Borders(xlEdgeTop)              'górna krawedz tabeli
+        .LineStyle = xlContinuous
+        .Weight = xlThin
+    End With
+
+    With Selection.Borders(xlEdgeBottom)           'dolna krawedz tabeli
+        .LineStyle = xlContinuous
+        .Weight = xlThin
+    End With
+
+    With Selection.Borders(xlEdgeRight)            'prawa krawedz tabeli
+        .LineStyle = xlContinuous
+        .Weight = xlThin
+    End With
+
+    With Selection.Borders(xlInsideVertical)       'krawedzie pionowe wewnatrz tabeli
+        .LineStyle = xlContinuous
+        .Weight = xlThin
+    End With
+
+    With Selection.Borders(xlInsideHorizontal)     'krawędzie poiome wewnątrz tabeli
+        .LineStyle = xlContinuous
+        .Weight = xlThin
+    End With
+    
+ActiveWorkbook.ActiveSheet.Cells(1, 1).Select
+
+End Sub
